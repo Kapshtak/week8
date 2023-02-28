@@ -2,9 +2,65 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
 }
 
 .container {
   max-width: 700px;
   margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.findcar {
+  background-color: coral;
+  width: 100vw;
+  height: 20rem;
+}
+
+#asdqwe {
+  background-color: white;
+  margin: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  height: 16rem;
+  text-align: center;
+  font-size: 30px;
+}
+
+input {
+  border: 0.8px solid black;
+  border-radius: 10px;
+  height: 2rem;
+  font-size: 20px;
+}
+
+button {
+  border: 0.8px solid black;
+  border-radius: 20px;
+  color: white;
+  background-color: coral;
+  font-size: 20px;
+  width: 8rem;
+  height: 4rem;
+  margin: 2rem;
+}
+
+.cartable {
+  max-width: 1000px;
+  height: 40rem;
+  margin: 2rem;
+}
+
+.cartable from div {
+  display: flex;
+  flex-direction: row;
+}
+
+.cartable input {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
 }

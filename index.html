@@ -4,24 +4,55 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>carTable</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="container">
+      <div class="findcar">
+        <div id="asdqwe">
+        <form>
+          <label for="search">Enter the licence</label>
+          <input type="text" id="search">
+       </form>
+        <button class="btn" id="find">FIND</button>
+        <p id="result"></p>
+      </div>
+      </div>
+      <div class="cartable">
+      <form>
+      <div>
       <label for="licence">Licence</label>
       <input type="text" required id="licence" />
-      <label for="maker">Manufavturer</label>
+      </div>
+      <div>
+      <label for="maker">Manufacturer</label>
       <input type="text" required id="maker" />
+      </div>
+      <div>
       <label for="model">Model</label>
       <input type="text" required id="model" />
+      </div>
+      <div>
       <label for="owner">Owner</label>
       <input type="text" required id="owner" />
+      </div>
+      <div>
       <label for="price">Price</label>
       <input type="text" required id="price" />
+      </div>
+      <div>
       <label for="color">Color</label>
       <input type="text" required id="color" />
-      <button class="btn submit">Submit</button>
-      <button class="btn reset">Reset</button>
+      </div>
+      <div>
+      <button class="btn" id="submit">SUBMIT</button>
+      <button class="btn" id="reset">RESET</button>
+      </div>
+      </form>
     </div>
     <table>
       <thead>
@@ -34,8 +65,9 @@
           <th>Color</th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody id="all-cars"></tbody>
     </table>
+    </div>
     <script src="./main.js"></script>
   </body>
 </html>
