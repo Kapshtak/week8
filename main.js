@@ -20,10 +20,18 @@ async function createCar() {
 }
 
 async function findCar() {
-  const data = await fetch(`http://localhost:8000/find-car?licence=${searchField.value}`, { mode: 'cors' })
+  const data = await fetch(
+    `http://localhost:8000/find-car?licence=${searchField.value}`,
+    { mode: 'cors' }
+  )
   const jsonData = await data.json()
-  result.textContent = `Licence plate: ${jsonData.licence}, Manufacturer: ${jsonData.maker}, Model: ${jsonData.model}, Owner: ${jsonData.owner}, Price: ${jsonData.price}, Color: ${jsonData.color}` 
-  jsonData.color
+  if ('message' in jsonData) {
+    result.textContent =
+      'No cars have been found with this licence plate number'
+  } else {
+    result.textContent = `Licence plate: ${jsonData.licence}, Manufacturer: ${jsonData.maker}, Model: ${jsonData.model}, Owner: ${jsonData.owner}, Price: ${jsonData.price}, Color: ${jsonData.color}`
+    jsonData.color
+  }
 }
 
 function createCell(text) {
@@ -50,6 +58,6 @@ async function getAllCars() {
 getAllCars()
 searchButton.addEventListener('click', findCar)
 submitButton.addEventListener('click', createCar)
-resetButton.addEventListener('click', function() {
+resetButton.addEventListener('click', function () {
   window.location.reload()
 })

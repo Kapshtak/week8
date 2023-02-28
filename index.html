@@ -4,69 +4,148 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>carTable</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="apple-touch-icon" sizes="57x57" href="media/favicon/" />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="media/favicon//apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="media/favicon//apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="media/favicon//apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="media/favicon//apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="media/favicon//apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="media/favicon//apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="media/favicon//apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="media/favicon//apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="media/favicon//android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="media/favicon//favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="media/favicon//favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="media/favicon//favicon-16x16.png"
+    />
+    <link rel="manifest" href="media/favicon//manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-TileImage"
+      content="media/favicon//ms-icon-144x144.png"
+    />
+    <meta name="theme-color" content="#ffffff" />
+  <title>Car storage</title>
   </head>
   <body>
     <div class="container">
       <div class="findcar">
         <div id="asdqwe">
-        <form>
-          <label for="search">Enter the licence</label>
-          <input type="text" id="search">
-       </form>
-        <button class="btn" id="find">FIND</button>
-        <p id="result"></p>
-      </div>
-      </div>
-      <div class="cartable">
-      <form>
-      <div>
-      <label for="licence">Licence</label>
-      <input type="text" required id="licence" />
+          <form>
+            <label for="search">Enter the licence number</label>
+            <input type="text" id="search" />
+          </form>
+          <button class="btn" id="find">FIND</button>
+          <p id="result"></p>
+        </div>
       </div>
       <div>
-      <label for="maker">Manufacturer</label>
-      <input type="text" required id="maker" />
+        <div class="cartable">
+          <table>
+            <form>
+              <tr>
+                <th><label for="licence">Licence</label></th>
+                <th><input type="text" required id="licence" /></th>
+              </tr>
+              <tr>
+                <th><label for="maker">Manufacturer</label></th>
+                <th><input type="text" required id="maker" /></th>
+              </tr>
+              <tr>
+                <th><label for="model">Model</label></th>
+                <th><input type="text" required id="model" /></th>
+              </tr>
+              <tr>
+                <th><label for="owner">Owner</label></th>
+                <th><input type="text" required id="owner" /></th>
+              </tr>
+              <tr>
+                <th><label for="price">Price</label></th>
+                <th><input type="text" required id="price" /></th>
+              </tr>
+              <tr>
+                <th><label for="color">Color</label></th>
+                <th><input type="text" required id="color" /></th>
+              </tr>
+            </form>
+          </table>
+          <div>
+            <button class="btn" id="submit">SUBMIT</button>
+            <button class="btn" id="reset">RESET</button>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Licence</th>
+              <th>Manufacturer</th>
+              <th>Model</th>
+              <th>Owner</th>
+              <th>Price</th>
+              <th>Color</th>
+            </tr>
+          </thead>
+          <tbody id="all-cars"></tbody>
+        </table>
       </div>
-      <div>
-      <label for="model">Model</label>
-      <input type="text" required id="model" />
-      </div>
-      <div>
-      <label for="owner">Owner</label>
-      <input type="text" required id="owner" />
-      </div>
-      <div>
-      <label for="price">Price</label>
-      <input type="text" required id="price" />
-      </div>
-      <div>
-      <label for="color">Color</label>
-      <input type="text" required id="color" />
-      </div>
-      <div>
-      <button class="btn" id="submit">SUBMIT</button>
-      <button class="btn" id="reset">RESET</button>
-      </div>
-      </form>
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Licence</th>
-          <th>Manufacturer</th>
-          <th>Model</th>
-          <th>Owner</th>
-          <th>Price</th>
-          <th>Color</th>
-        </tr>
-      </thead>
-      <tbody id="all-cars"></tbody>
-    </table>
     </div>
     <script src="./main.js"></script>
   </body>
