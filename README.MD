@@ -1,4 +1,4 @@
-# Car
+# Cars
 - Ask for the car's licence plate, car maker, car model, current owner, price and colour - get the user input and create a new car object based on those properties.
   > Form with 6 fields: licence number, car manufacturer, car model, car owner, car price, car colour and with two buttons - submit and reset.
 - Show the data as a table on a wabpage.
