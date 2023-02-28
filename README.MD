@@ -1,4 +1,4 @@
-# Speed game
+# Car licences
 
 - Ask for the car's licence plate, car maker, car model, current owner, price and colour.
 - Get the user input and create a new car object based on those properties.
