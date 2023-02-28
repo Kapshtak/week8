@@ -4,3 +4,8 @@
 - Show the data as a table on a wabpage.
   > Table of all instances of the database.
 - Function that allows the user to search for a specific car based on a licence plate, if the licence plate is not found, the function should return a proper message.
+
+How to use:
+- check port 8000 - it should be available;
+- run in terminal `node server.js`;
+- open `index.html` with Live Server.
