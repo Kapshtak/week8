@@ -14,13 +14,13 @@
   flex-direction: column;
 }
 
-.findcar {
+.search-section {
   background-color: coral;
   width: 100vw;
   height: 20rem;
 }
 
-#asdqwe {
+#search-sub-section {
   background-color: white;
   margin: 2rem;
   padding: 1rem;
@@ -48,19 +48,10 @@ button {
   margin: 2rem;
 }
 
-.cartable {
+.input-section {
   max-width: 1000px;
   height: 40rem;
   margin: 2rem;
-}
-
-.cartable from div {
-  display: flex;
-  flex-direction: row;
-}
-
-.cartable input {
-  display: flex;
-  flex-direction: column;
-  margin: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
