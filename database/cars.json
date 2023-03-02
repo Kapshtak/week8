@@ -1,1 +1,34 @@
-[{"licence":"555","maker":"Lada","model":"Niva","owner":"Leha","price":"125000","color":"black"},{"licence":"666","maker":"Lada","model":"6x6","owner":"Dima","price":"5000","color":"Crimson"},{"licence":"777","maker":"Moskvich","model":"IZH KOMBI","owner":"Stas","price":"1235","color":"brown"},{"licence":"888","maker":"Zaporozhets","model":"Gorbatiy","owner":"Ded","price":"990","color":"Green"}]
+[
+  {
+    "licence": "A555TH",
+    "maker": "Lada",
+    "model": "Niva",
+    "owner": "Alexey",
+    "price": "125000",
+    "color": "Black"
+  },
+  {
+    "licence": "T352YC",
+    "maker": "Lada",
+    "model": "6x6",
+    "owner": "Dmitriy",
+    "price": "50000",
+    "color": "Crimson"
+  },
+  {
+    "licence": "BH777P",
+    "maker": "Moskvich",
+    "model": "Kombi",
+    "owner": "Stanislav",
+    "price": "78000",
+    "color": "Brown"
+  },
+  {
+    "licence": "K388OE",
+    "maker": "Zaporozhets",
+    "model": "Gorbatiy",
+    "owner": "Saveliy",
+    "price": "9900",
+    "color": "Sky blue"
+  }
+]
