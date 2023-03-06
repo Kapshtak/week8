@@ -83,39 +83,61 @@
       content="media/favicon//ms-icon-144x144.png"
     />
     <meta name="theme-color" content="#ffffff" />
-    <title>Car storage</title>
+
+    <title>Car Storage</title>
   </head>
+
   <body>
     <div class="container">
-      <div class="search-section">
-        <div id="search-sub-section">
-          <form>
-            <label for="search">Enter the licence number</label>
-            <input type="text" id="search" />
-          </form>
-          <button class="btn" id="find">FIND</button>
+      <div class="search-section-background">
+        <div id="search-section">
+          <div>
+            <form>
+              <label for="search">Enter the licence number</label>
+              <input type="text" id="search" />
+            </form>
+
+            <button class="btn" id="find">FIND</button>
+          </div>
+
+          <p id="result"></p>
         </div>
-        <p id="result"></p>
       </div>
+
       <div class="sub-container">
         <div class="input-section">
-          <label for="licence">Licence</label>
-          <input type="text" required id="licence" />
-          <label for="maker">Manufacturer</label>
-          <input type="text" required id="maker" />
-          <label for="model">Model</label>
-          <input type="text" required id="model" />
-          <label for="owner">Owner</label>
-          <input type="text" required id="owner" />
-          <label for="price">Price</label>
-          <input type="text" required id="price" />
-          <label for="color">Color</label>
-          <input type="text" required id="color" />
+          <div class="inputs">
+            <label for="licence">
+              <small>Licence</small>
+            </label>
+            <input type="text" required id="licence" />
+            <label for="maker">
+              <small>Manufacturer</small>
+            </label>
+            <input type="text" required id="maker" />
+            <label for="model">
+              <small>Model</small>
+            </label>
+            <input type="text" required id="model" />
+            <label for="owner">
+              <small>Owner</small>
+            </label>
+            <input type="text" required id="owner" />
+            <label for="price">
+              <small>Price</small>
+            </label>
+            <input type="text" required id="price" />
+            <label for="color">
+              <small>Color</small>
+            </label>
+            <input type="text" required id="color" />
+          </div>
           <div class="buttons">
             <button class="btn" id="submit">SUBMIT</button>
             <button class="btn" id="reset">RESET</button>
           </div>
         </div>
+
         <table>
           <thead>
             <tr>
@@ -131,6 +153,7 @@
         </table>
       </div>
     </div>
+
     <script src="./main.js"></script>
   </body>
 </html>
