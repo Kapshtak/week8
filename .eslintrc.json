@@ -1,21 +1,18 @@
 {
   "env": {
     "browser": true,
-    "commonjs": true,
     "es2021": true
   },
-  "extends": "standard",
+  "extends": "eslint:recommended",
   "overrides": [],
   "parserOptions": {
-    "ecmaVersion": "latest"
+    "ecmaVersion": "latest",
+    "sourceType": "module"
   },
-  "rules": {},
-  "space-before-function-paren": [
-    "error",
-    {
-      "anonymous": "always",
-      "named": "never",
-      "asyncArrow": "never"
-    }
-  ]
+  "rules": {
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"]
+  }
 }

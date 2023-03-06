@@ -1,16 +1,22 @@
+/* eslint-disable no-undef */
 'use strict'
 const http = require('http')
 const port = 8000
 const host = 'localhost'
-const { getAllCars, addCar, findCar, getDiscountedPrice } = require('./database/cars')
+const {
+  getAllCars,
+  addCar,
+  findCar,
+  getDiscountedPrice
+} = require('./database/cars')
 
-const server= http.createServer(async (request,response)=>{
+const server = http.createServer(async (request, response) => {
   const { pathname, searchParams } = new URL(
     `http://${request.headers.host}${request.url}`
   )
   const route = decodeURIComponent(pathname)
   if (route === '/get-cars') {
-    const cars = getAllCars()
+    const cars = await getAllCars()
     for (const car of cars) {
       [car['discountedPrice'], car['discount']] = getDiscountedPrice(car)
     }
@@ -22,17 +28,24 @@ const server= http.createServer(async (request,response)=>{
       model: searchParams.get('model'),
       owner: searchParams.get('owner'),
       price: searchParams.get('price'),
-      color: searchParams.get('color'),
+      color: searchParams.get('color')
     }
-    addCar(car)
-    sendJSON(response, car, 201)
+    const carStatus = await addCar(car)
+    if ('error' in carStatus) {
+      sendJSON(response, carStatus, 200)
+    } else {
+      sendJSON(response, car, 201)
+    }
   } else if (route === '/find-car') {
     const car = await findCar(searchParams.get('licence'))
-    car['discountedPrice'] = getDiscountedPrice(car)[0]
-    car['discount'] = getDiscountedPrice(car)[1]
-    sendJSON(response, car, 200)
+    if ('error' in car) {
+      sendJSON(response, car, 200)
+    } else {
+      [car['discountedPrice'], car['discount']] = getDiscountedPrice(car)
+      sendJSON(response, car, 200)
+    }
   } else {
-    sendJSON(response, { error: 'Not found' }, 404)
+    sendJSON(response, { error: 'Page not found' }, 404)
   }
 })
 
