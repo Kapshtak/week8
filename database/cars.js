@@ -1,7 +1,17 @@
 'use strict'
 const fs = require('fs')
-const path = require('path')
 const filePath = 'database/cars.json'
+
+async function readStorage(storageFile){
+  try{
+      const data = await fs.promises.readFile(storageFile,'utf8');
+      return JSON.parse(data);
+  }
+  catch(err){
+      console.log(err)
+      return [];
+  }
+}
 
 function getAllCars() {
   try {
@@ -21,22 +31,31 @@ function addCar(obj) {
   }
 }
 
-function findCar(licence) {
-  try {
-    const JsonString = JSON.parse(fs.readFileSync(filePath, 'utf-8', 'r'))
-    for (const car of JsonString) {
+async function findCar(licence){
+  const library = await(readStorage(filePath));
+  return new Promise(resolve=>{
+    for (let car of library) {
       if (car.licence == licence.toUpperCase()) {
-        return car
       }
-    }
-    return { message: 'car not found' }
-  } catch (err) {
-    console.error(err)
+        resolve(car)}
+      resolve({ error: 'Not found' });
+  });  
+}
+
+function getDiscountedPrice(obj) {
+  switch (true) {
+    case obj.price > 20000:
+      return [obj.price * 0.75, '25%']
+    case obj.price < 5000:
+      return [obj.price * 0.9, '10%']
+    case (obj.price >= 5000 || obj.price <= 20000):
+      return [obj.price * 0.85, '15%']
   }
 }
 
 module.exports = {
   getAllCars,
   addCar,
-  findCar
+  findCar,
+  getDiscountedPrice
 }
