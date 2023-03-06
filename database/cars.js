@@ -25,7 +25,7 @@ function findCar(licence) {
   try {
     const JsonString = JSON.parse(fs.readFileSync(filePath, 'utf-8', 'r'))
     for (const car of JsonString) {
-      if (car.licence == licence.toLowerCase()) {
+      if (car.licence == licence.toUpperCase()) {
         return car
       }
     }
