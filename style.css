@@ -83,6 +83,10 @@ button:hover {
   margin-right: 2rem;
 }
 
+#result {
+  text-align: center;
+}
+
 .input-section {
   margin-right: 5rem;
   display: flex;
@@ -105,11 +109,29 @@ button:hover {
 }
 
 table {
+  border-radius: 10px;
+  box-shadow: 0 0 5px black;
+}
+
+table th {
   background-color: coral;
   width: 30rem;
   padding: 0.5rem;
   border-radius: 10px;
-  box-shadow: 0 0 5px black;
+  text-align: left;
+}
+
+table tr {
+  background-color: white;
+}
+
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table tr:hover {
+  background-color: #ddd;
 }
 
 
@@ -117,6 +139,14 @@ table {
 
 
 @media (max-width: 900px) {
+  .search-section-background {
+    height: 25rem;
+  }
+  
+  #search-section {
+    height: 21rem;
+  }
+
   #search-section div {
     flex-direction: column;
   }
