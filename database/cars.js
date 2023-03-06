@@ -1,55 +1,61 @@
+/* eslint-disable no-undef */
 'use strict'
 const fs = require('fs')
 const filePath = 'database/cars.json'
 
-async function readStorage(storageFile){
-  try{
-      const data = await fs.promises.readFile(storageFile,'utf8');
-      return JSON.parse(data);
-  }
-  catch(err){
-      console.log(err)
-      return [];
-  }
-}
-
-function getAllCars() {
+async function readStorage(storageFile) {
   try {
-    return JSON.parse(fs.readFileSync(filePath, 'utf-8', 'r'))
+    const data = await fs.promises.readFile(storageFile, 'utf8')
+    return JSON.parse(data)
   } catch (err) {
-    console.error(err)
+    console.log(err)
+    return []
   }
 }
 
-function addCar(obj) {
-  try {
-    const JsonString = JSON.parse(fs.readFileSync(filePath, 'utf-8', 'r+'))
-    JsonString.push(obj)
-    fs.writeFileSync(filePath, JSON.stringify(JsonString), 'utf-8')
-  } catch (err) {
-    console.error(err)
-  }
+async function getAllCars() {
+  const database = await readStorage(filePath)
+  return new Promise((resolve) => {
+    resolve(database)
+  })
 }
 
-async function findCar(licence){
-  const library = await(readStorage(filePath));
-  return new Promise(resolve=>{
-    for (let car of library) {
+async function addCar(obj) {
+  const database = await readStorage(filePath)
+  const carStatus = await findCar(obj.licence)
+  return new Promise((resolve) => {
+    if ('error' in carStatus) {
+      database.push(obj)
+      fs.writeFileSync(filePath, JSON.stringify(database), 'utf-8')
+      resolve(database)
+    }
+    resolve({ error: 'Car is already exists' })
+  })
+}
+
+async function findCar(licence) {
+  const database = await readStorage(filePath)
+  return new Promise((resolve) => {
+    if (database.length === 0) {
+      resolve({ error: 'Database is empty' })
+    }
+    for (let car of database) {
       if (car.licence == licence.toUpperCase()) {
+        resolve(car)
       }
-        resolve(car)}
-      resolve({ error: 'Not found' });
-  });  
+    }
+    resolve({ error: 'Car not found' })
+  })
 }
 
 function getDiscountedPrice(obj) {
   switch (true) {
-    case obj.price > 20000:
-      return [obj.price * 0.75, '25%']
-    case obj.price < 5000:
-      return [obj.price * 0.9, '10%']
-    case (obj.price >= 5000 || obj.price <= 20000):
-      return [obj.price * 0.85, '15%']
+  case obj.price > 20000:
+    return [obj.price * 0.75, '25%']
+  case obj.price < 5000:
+    return [obj.price * 0.9, '10%']
+  case obj.price >= 5000 || obj.price <= 20000:
+    return [obj.price * 0.85, '15%']
   }
 }
 

@@ -6,9 +6,7 @@
   font-family: 'Raleway', sans-serif;
 }
 
-
 /* GLOBAL SETTINGS */
-
 
 .container {
   display: flex;
@@ -45,9 +43,7 @@ button:hover {
   box-shadow: 0 0 5px rgb(0, 0, 0);
 }
 
-
 /* MAIN SETTINGS */
-
 
 .search-section-background {
   background-color: coral;
@@ -57,7 +53,7 @@ button:hover {
 }
 
 #search-section {
-  background-color: rgba(255, 255, 255, 0.900);
+  background-color: rgba(255, 255, 255, 0.9);
   margin: 2rem;
   padding: 1rem;
   border-radius: 10px;
@@ -112,9 +108,7 @@ table {
   box-shadow: 0 0 5px black;
 }
 
-
 /* ADJUSTMENTS FOR MOBILE DEVICES */
-
 
 @media (max-width: 900px) {
   #search-section div {
@@ -139,7 +133,7 @@ table {
   #search-section button {
     margin: 2rem;
   }
-  
+
   #search-section label {
     margin: 2rem;
   }

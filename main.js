@@ -12,8 +12,9 @@ const searchButton = document.getElementById('find')
 const result = document.getElementById('result')
 
 async function createCar() {
-  const url = `http://localhost:8000/create-car?licence=${licence.value}&maker=${maker.value}` + 
-              `&model=${model.value}&owner=${owner.value}&price=${price.value}&color=${color.value}`
+  const url =
+    `http://localhost:8000/create-car?licence=${licence.value}&maker=${maker.value}` +
+    `&model=${model.value}&owner=${owner.value}&price=${price.value}&color=${color.value}`
   const xmlHttp = new XMLHttpRequest()
   xmlHttp.open('GET', url, false)
   xmlHttp.send(null)
@@ -30,10 +31,11 @@ async function findCar() {
     result.textContent =
       'No cars have been found with this licence plate number'
   } else {
-    result.textContent = `Licence plate: ${jsonData.licence}, ` +
-                         `Manufacturer: ${jsonData.maker}, Model: ${jsonData.model}, ` +
-                         `Owner: ${jsonData.owner}, Price: ${jsonData.price}, Color: ${jsonData.color}, ` +
-                         `Discounted price: ${jsonData.discountedPrice}, Discount: ${jsonData.discount}`
+    result.textContent =
+      `Licence plate: ${jsonData.licence}, ` +
+      `Manufacturer: ${jsonData.maker}, Model: ${jsonData.model}, ` +
+      `Owner: ${jsonData.owner}, Price: ${jsonData.price}, Color: ${jsonData.color}, ` +
+      `Discounted price: ${jsonData.discountedPrice}, Discount: ${jsonData.discount}`
     jsonData.color
   }
 }
