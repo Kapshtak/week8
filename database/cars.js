@@ -29,7 +29,7 @@ async function addCar(obj) {
       fs.writeFileSync(filePath, JSON.stringify(database), 'utf-8')
       resolve(database)
     }
-    resolve({ error: 'Car is already exists' })
+    resolve({ error: 'Car already exists' })
   })
 }
 
